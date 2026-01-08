@@ -24,3 +24,46 @@ Program został zaprojektowany i przetestowany za pomocą następujących narzę
 Interfejs użytkownika opiera się na trybie tekstowym (CLI)
 z wykorzystaniem kodów sterujących ANSI do formatowania
 i kolorowania tekstu konsoli.
+
+
+## 2. Funkcjonalności
+**Tryb rywalizacji** - mechanika wyścigu,
+w którym użytkownik i komputer równolegle odgadują to samo hasło.
+System zarządza turami obu stron niezależnie.
+
+**Dwutorowy system zgadywania** - możliwość odgadnięcia w danej turze
+pojedynczej litery lub podjęcia ryzyka odgadnięcia całego hasła,
+za co przydzielane są dodatkowe punkty w przypadku prawidłowego strzału
+lub kary za błędne odgadnięcie hasła.
+
+**Algorytm przeciwnika (AI)** - symulacja inteligentnego gracza komputerowego,
+który losuje litery, zapamiętuje swoje ruchy
+i nigdy nie typuje dwukrotnie tej samej litery.
+
+**Dynamiczna wizualizacja stanu gry** – graficzna reprezentacja postępu
+za pomocą kolorowych napisów (dzięki kodom ANSI)
+i grafik utworzonych za pomocą symboli ASCII w terminalu,
+zmieniająca się wraz z utratą żyć (12 etapów rysowania szubienicy).
+
+**System obsługi kategorii tematycznych** – dynamiczne wczytywanie
+bazy haseł z zewnętrznych plików tekstowych,
+umożliwiające łatwą rozbudowę gry o nowe słowa
+bez ingerencji w kod źródłowy.
+Rozgrywka w poszczególnej kategorii zależy od wyboru
+użytkownika w menu głównym.
+
+**Trwałość danych** – system zapisu i odczytu danych z plików,
+obejmujący przechowywanie tablicy wyników
+oraz historii ostatniej rozgrywki.
+
+**Walidacja danych wejściowych** – zaawansowany mechanizm sprawdzania poprawności wprowadzanych
+przez użytkownika danych – blokada znaków specjalnych, cyfr, ciągów znaków.
+
+**Zarządzanie profilem gracza** – możliwość zmiany nicku,
+wraz ze śledzeniem statystyk poszczególnych graczy
+na tablicy wyników – funkcjonalność na wzór automatów z retro grami Arcade,
+np.
+```
+Gracz 1 --------- 120pkt
+Gracz 2 --------- 105pkt
+```
