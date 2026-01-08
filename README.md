@@ -67,3 +67,35 @@ np.
 Gracz 1 --------- 120pkt
 Gracz 2 --------- 105pkt
 ```
+
+## 3. Przebieg realizacji
+
+### Wykorzystane biblioteki standardowe
+|     Biblioteka    |              Kluczowe elementy              |                               Zastosowanie w projekcie                               |
+|:-----------------:|:-------------------------------------------:|:------------------------------------------------------------------------------------:|
+|     `<random>`    | std::mt19937, std::uniform_int_distribution | Zaawansowane generowanie liczb pseudolosowych dla ruchów komputera oraz wyboru słów. |
+| `<unordered_set>` |           std::unordered_set<char>          |                     Przechowywanie użytych w trakcie rundy liter.                    |
+|     `<vector>`    |                 std::vector                 |     Dynamiczne przechowywanie listy wyników, oraz list słów wczytanych z plików.     |
+|    `<fstream>`    |         std::ifstream, std::ofstream        |                                 Operacje na plikach.                                 |
+|     `<string>`    |                 std::string                 |          Manipulacja łańcuchami znaków, przechowywanie haseł i nazw graczy.          |
+|    `<iostream>`   |             std::cin, std::cout             |                   Standardowa obsługa wejścia/wyjścia w Terminalu.                   |
+
+
+### Struktura danych
+
+Dane w programie są organizowane za pomocą struktur zdefiniowanych w pliku `models.h`:
+- `struct Player`: Reprezentuje stan gracza (lub komputera) w trakcie bieżącej rozgrywki.
+    - `std::string nickname`: Nazwa gracza.
+    - `std::unordered_set<char> usedLetters`: Zbiór użytych przez gracza (lub komputer) liter, pozwalający na szybkie sprawdzanie duplikatów.
+    - Zmienne całkowite (`int`):
+      - `correctlyGuessedLetters`: Postęp zgadywania.
+      - `livesLeft`: Pozostałe życia.
+      - `points`: Punkty w danej rundzie.
+      - `matchesPlayed`: Suma rozegranych rund.
+      - `matchesWon`: Suma wygranych rund.
+      - `totalPoints`: Suma punktów.
+- `struct PlayerStats`: Służy do wczytywania i zapisywania statystyk globalnych.
+- `struct Keyword`: Przechowuje informacje o aktualnym haśle.
+  - `std::string word`: Treść hasła.
+  - `int length`: Liczba liter w haśle.
+
