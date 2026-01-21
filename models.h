@@ -9,11 +9,6 @@
 struct Keyword {
     std::string word;
     int length;
-
-    // Keyword(std::string w = "") {
-    //     word = w;
-    //     length = w.length();
-    // }
 };
 
 struct Player {
