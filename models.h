@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-// #include <optional>
 #include <unordered_set>
 
 struct Keyword {
