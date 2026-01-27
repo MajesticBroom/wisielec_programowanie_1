@@ -254,8 +254,10 @@ int main() {
                     saveLatestGameSettings(player, currentCategory);
 
                     // Aktualizacja tablicy wyników
-                    std::vector<std::vector<std::string>> leaderboardData = readFromLeaderboardFile();
-                    updateLeaderboard(leaderboardData, player);
+                    if (player.nickname != "Gracz") {
+                        std::vector<std::vector<std::string>> leaderboardData = readFromLeaderboardFile();
+                        updateLeaderboard(leaderboardData, player);
+                    }
 
                     if (stopGame == false) {
                         cout << endl;
@@ -361,6 +363,10 @@ int main() {
 
             case 5: {
                 cout << "Instrukcja" << endl;
+
+                std::cout << "[0] - Powrót do menu" << std::endl;
+                std::cin >> menuChoice;
+                system("clear");
             }
 
             case 6: {

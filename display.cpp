@@ -191,11 +191,46 @@ void drawHangman(const int lives) {
         printBr(colorString("  /   \\           ", Colors::Yellow));
     }
 
-    printBr(colorString("=================", Colors::Yellow)); // dół też jest zawsze // dół też jest zawsze
+    printBr(colorString("=================", Colors::Yellow)); // dół też jest zawsze
+}
+
+const std::string linia = "-----------------------------------------------------------------------";
+
+void drawLine(const int &length, const std::string &text = "", const Colors col = Colors::White, const bool isBold = false) {
+    if (length > 0) {
+        std::string line = "";
+        if (text.empty()) {
+            for (int i = 0; i < length; i++) {
+                line += "-";
+            }
+        } else {
+            std::string part = "";
+            int partLength = (length - text.length()) / 2;
+            for (int i = 0; i < partLength; i++) {
+                if (i == (partLength - 1)) {
+                    line += " ";
+                } else {
+                    line += "-";
+                }
+            }
+
+            line += text;
+
+            for (int i = 0; i < partLength; i++) {
+                if (i == 0) {
+                    line += " ";
+                } else {
+                    line += "-";
+                }
+            }
+        }
+
+        std::cout << colorString(line, col, isBold) << std::endl;
+    }
 }
 
 void drawLeaderboard(const std::vector<std::vector<std::string>> &leaderboardData) {
-    printBr(colorString("------------ TABLICA WYNIKÓW ------------", Colors::Red, true));
+    drawLine(71, "Tablica wynikow", Colors::Red, true);
     std::cout << std::setw(18) << std::left << "Nazwa gracza";
     std::cout << " ";
     std::cout << std::setw(19) << std::right << "Rozegranych gier";
@@ -206,7 +241,7 @@ void drawLeaderboard(const std::vector<std::vector<std::string>> &leaderboardDat
     std::cout << std::endl;
 
     for (std::vector vector : leaderboardData) {
-        printBr(colorString("-----------------------------------------", Colors::Red));
+        drawLine(71, "", Colors::Red, true);
         std::cout << std::setw(18) << std::left << vector[0];
         std::cout << " ";
         std::cout << std::setw(19) << std::right << vector[1];
@@ -217,5 +252,5 @@ void drawLeaderboard(const std::vector<std::vector<std::string>> &leaderboardDat
         std::cout << std::endl;
     }
 
-    printBr(colorString("-----------------------------------------", Colors::Red, true));
+    drawLine(71, "", Colors::Red, true);
 }

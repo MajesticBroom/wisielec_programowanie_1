@@ -4,6 +4,7 @@
 
 #include "fileOperations.h"
 
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 
@@ -41,6 +42,20 @@ std::vector<std::vector<std::string>> readFromLeaderboardFile() {
     }
 
     file.close();
+
+    // Sortujemy od początku (begin) do końca (end) wektora
+    std::sort(leaderboardData.begin(), leaderboardData.end(),
+        [](const std::vector<std::string>& a, const std::vector<std::string>& b) {
+            // totalPoints znajduje się pod indeksem 3
+            // Musimy użyć std::stoi, aby zamienić string na int do poprawnego porównania
+            int pointsA = std::stoi(a[3]);
+            int pointsB = std::stoi(b[3]);
+
+            // Zwracamy true, jeśli A ma być przed B
+            // Dla sortowania malejącego (max -> min): A > B
+            return pointsA > pointsB;
+        }
+    );
 
     return leaderboardData;
 }
