@@ -51,6 +51,6 @@ std::string colorString(const std::string &text, Colors col, bool isBold = false
 // Funkcje manipulujące tekstem
 void printBr(const std::string &text);
 
-void drawLine(const int &length, const std::string &text = "", const Colors col = Colors::White, const bool isBold = false);
+void drawLine(const int &length, const std::string &text, Colors col, bool isBold);
 
 #endif //WISIELEC_DISPLAY_H
