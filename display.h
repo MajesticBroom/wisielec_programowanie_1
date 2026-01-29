@@ -53,4 +53,6 @@ void printBr(const std::string &text);
 
 void drawLine(const int &length, const std::string &text, Colors col, bool isBold);
 
+void displayInstructions();
+
 #endif //WISIELEC_DISPLAY_H

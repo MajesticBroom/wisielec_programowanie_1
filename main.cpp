@@ -236,6 +236,7 @@ int main() {
                         player.matchesPlayed++;
                     } else if (!isAlive(cpu)) {
                         cout << colorString("Komputer przegrał. Wygrałeś!", Colors::Green) << endl;
+                        cout << "Poprawne hasło: " << colorString(secret.word, Colors::Green) << endl;
                         player.totalPoints += player.points;
                         player.matchesWon++;
                         player.matchesPlayed++;
@@ -362,7 +363,7 @@ int main() {
             }
 
             case 5: {
-                cout << "Instrukcja" << endl;
+                displayInstructions();
 
                 std::cout << "[0] - Powrót do menu" << std::endl;
                 std::cin >> menuChoice;

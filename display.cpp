@@ -254,3 +254,47 @@ void drawLeaderboard(const std::vector<std::vector<std::string>> &leaderboardDat
 
     drawLine(71, "", Colors::Red, true);
 }
+
+void displayInstructions() {
+    drawLine(90, "INSTRUKCJA", Colors::Red, true);
+    std::cout << std::endl;
+
+    std::cout << " Gra polega na odgadywaniu wylosowanego hasła. Hasłem jest jednowyrazowe" << std::endl;
+    std::cout << " słowo w języku polskim, pozbawione polskich znaków specjalnych" << std::endl;
+    std::cout << " (np. w haśle występuje \"a\" zamiast \"ą\")." << std::endl;
+    std::cout << std::endl;
+    std::cout << " Mechanika gry wyróżnia się następującymi cechami:" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "  - Każda ze stron (Gracz i Komputer) posiada pulę 12 żyć," << std::endl;
+    std::cout << "    odpowiadającą liczbie etapów rysowania pełnej szubienicy." << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "  - Celem jest odgadnięcie hasła szybciej niż przeciwnik komputerowy." << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "    (+) Prawidłowa litera: ........................ +5 pkt" << std::endl;
+    std::cout << "    (-) Błędna litera: ............................ -1 życie" << std::endl;
+    std::cout << "    (+) Udana próba odgadnięcia całego hasła: ..... +3 pkt (za odwagę)" << std::endl;
+    std::cout << "    (-) Nieudana próba odgadnięcia całego hasła: .. -3 życia" << std::endl;
+    std::cout << "    (+) Ostateczne odgadnięcie hasła: ............. +10 pkt" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "  Gra kończy się w jednym z czterech przypadków:" << std::endl;
+    std::cout << "    1. Gracz odgadł hasło ................ Zwycięstwo Gracza" << std::endl;
+    std::cout << "    2. Komputer stracił wszystkie życia .. Zwycięstwo Gracza" << std::endl;
+    std::cout << "    3. Komputer odgadł hasło ............. Zwycięstwo Komputera" << std::endl;
+    std::cout << "    4. Gracz stracił wszystkie życia ..... Zwycięstwo Komputera" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "  Gracz porusza się po interfejsie za pomocą wybierania odpowiednich" << std::endl;
+    std::cout << "  cyfr opisanych na ekranie, np.:" << std::endl;
+    // std::cout << "     [0] - Wróć do menu" << std::endl;
+    std::cout << colorString("     [0] - Wróć do menu", Colors::Blue) << std::endl;
+    std::cout << "  Użytkownik powinien wprowadzić odpowiednią cyfrę z klawiatury," << std::endl;
+    std::cout << "  po czym zatwierdzić ją klawiszem ENTER/RETURN. Na tej samej zasadzie" << std::endl;
+    std::cout << "  użytkownik wprowadza kolejne litery w trakcie rozgrywki." << std::endl;
+    std::cout << std::endl;
+
+    drawLine(90, "", Colors::Red, true);
+}
