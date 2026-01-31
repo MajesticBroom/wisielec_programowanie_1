@@ -29,7 +29,6 @@ std::vector<std::vector<std::string>> readFromLeaderboardFile() {
 
     std::string nickname;
     int matchesPlayed, matchesWon, totalPoints;
-    // int lineNumber = 0;
 
     while (file >> nickname >> matchesPlayed >> matchesWon >> totalPoints) {
         std::vector<std::string> row;
