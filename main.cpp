@@ -326,32 +326,33 @@ int main() {
                 cout << "Zmień nick: ";
                 cin >> newNickname;
 
-                while (newNickname.length() < 3 || newNickname.length() > 18) {
-                    cout << "Nick powinien mieć od 3 do 18 liter." << endl;
-                    cout << "Zmień nick: ";
-                    cin >> newNickname;
-                }
-
-                PlayerStats stats = loadPlayerStats(newNickname);
-
-                player = {newNickname, {}, 0, 12, 0};
-                player.matchesPlayed = stats.matchesPlayed;
-                player.matchesWon = stats.matchesWon;
-                player.totalPoints = stats.totalPoints;
-
-                std::vector<std::vector<std::string>> leaderboardData = readFromLeaderboardFile();
-                updateLeaderboard(leaderboardData, player);
-
-
                 if (newNickname.empty() || newNickname == "0") {
                     menuChoice = 0;
                 } else {
+                    while (newNickname.length() < 3 || newNickname.length() > 18) {
+                        cout << "Nick powinien mieć od 3 do 18 liter." << endl;
+                        cout << "Zmień nick: ";
+                        cin >> newNickname;
+                    }
+
+                    PlayerStats stats = loadPlayerStats(newNickname);
+
+                    player = {newNickname, {}, 0, 12, 0};
+                    player.matchesPlayed = stats.matchesPlayed;
+                    player.matchesWon = stats.matchesWon;
+                    player.totalPoints = stats.totalPoints;
+
+                    std::vector<std::vector<std::string>> leaderboardData = readFromLeaderboardFile();
+                    updateLeaderboard(leaderboardData, player);
+
+
                     changePlayerNickname(player, newNickname);
-                    menuChoice = 0;
+
+
                 }
 
+                currentCategory = Category::Mix;
                 system("clear");
-
                 break;
             }
 
@@ -360,7 +361,16 @@ int main() {
                 drawLeaderboard(readFromLeaderboardFile());
 
                 std::cout << "[0] - Powrót do menu" << std::endl;
-                std::cin >> menuChoice;
+                int menuMove;
+                std::cin >> menuMove;
+                // std::cin >> menuChoice;
+
+                while (menuMove != 0) {
+                    std::cout << "Niedostępna opcja do wyboru!" << std::endl;
+                    std::cin >> menuMove;
+                }
+
+                menuChoice = menuMove;
                 system("clear");
 
                 break;
@@ -370,8 +380,19 @@ int main() {
                 displayInstructions();
 
                 std::cout << "[0] - Powrót do menu" << std::endl;
-                std::cin >> menuChoice;
+                int menuMove;
+                std::cin >> menuMove;
+                // std::cin >> menuChoice;
+
+                while (menuMove != 0) {
+                    std::cout << "Niedostępna opcja do wyboru!" << std::endl;
+                    std::cin >> menuMove;
+                }
+
+                menuChoice = menuMove;
                 system("clear");
+
+                break;
             }
 
             case 6: {
