@@ -64,24 +64,11 @@ int main() {
 
     cpu = {"Komputer", {}, 0, 12};
 
-    // Wczytujemy ostatniego gracza i kategorię z pliku ustawień, jeśli nie był to "Gracz", czyli no-name
-    // if (latestSettings.empty() || !static_cast<bool>(std::stoi(latestSettings[0]))) {
-    //     player = {"Gracz", {}, 0, 12};
-    //     currentCategory = Category::Mix;
-    //
-    // } else {
-    //     player = {latestSettings[1], {}, 0, 12};
-    //     cpu = {"Komputer", {}, 0, 12};
-    //     currentCategory = static_cast<Category>(std::stoi(latestSettings[2]));
-    // }
-
-
 
     int menuChoice = 0;
 
     do {
         drawMenu(player.nickname, categoryToString(currentCategory));
-        // cout << colorString("Testowy pogrubiony czerwony napis", Colors::Red, true);
 
         // walidacja wyboru menu
         if (!(std::cin >> menuChoice)) {
@@ -100,27 +87,9 @@ int main() {
                     // pętla gry
                     string rawWord = getRandomWord(currentCategory);
                     Keyword secret = createKeyword(rawWord);
-                    // Keyword secret = {"dupa", 4};
 
                     resetPlayerState(player);
                     resetPlayerState(cpu);
-
-
-                    // // Tutaj można dodać jeszcze odliczanie dzięki pętli for
-                    // // cout << "Rozpoczynamy grę!" << endl;
-                    // cout << "Pamiętaj, że hasła nie zawierają polskich znaków!" << endl;
-                    //
-                    // std::cout << "Rozpoczynamy grę" << std::flush;
-                    // std::this_thread::sleep_for(std::chrono::milliseconds(600));
-                    //
-                    // for (int i = 3; i > 0; i--) {
-                    //     std::cout << "." << std::flush;
-                    //     std::this_thread::sleep_for(std::chrono::milliseconds(600));
-                    // }
-                    // // Wstrzymanie na chwilę, aby użytkownik zdążył przeczytać
-                    // std::this_thread::sleep_for(std::chrono::milliseconds(200));
-                    //
-                    // system("clear");
 
 
                     // pętla rozgrywki:
@@ -363,7 +332,6 @@ int main() {
                 std::cout << "[0] - Powrót do menu" << std::endl;
                 int menuMove;
                 std::cin >> menuMove;
-                // std::cin >> menuChoice;
 
                 while (menuMove != 0) {
                     std::cout << "Niedostępna opcja do wyboru!" << std::endl;
@@ -382,7 +350,6 @@ int main() {
                 std::cout << "[0] - Powrót do menu" << std::endl;
                 int menuMove;
                 std::cin >> menuMove;
-                // std::cin >> menuChoice;
 
                 while (menuMove != 0) {
                     std::cout << "Niedostępna opcja do wyboru!" << std::endl;
