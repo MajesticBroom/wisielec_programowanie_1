@@ -170,7 +170,11 @@ int main() {
                                 continue;
                             }
 
-                            if (userFullWord == secret.word) {
+                            // zmiana liter na małe
+                            std::string userFullWordLower = userFullWord;
+                            transform(userFullWordLower.begin(), userFullWordLower.end(), userFullWordLower.begin(), ::tolower);
+
+                            if (userFullWordLower == secret.word) {
                                 std::cout << colorString("Brawo! To poprawne hasło!", Colors::Green) << std::endl;
                                 // Gracz odgadł całe hasło
                                 for (char c : secret.word) {
